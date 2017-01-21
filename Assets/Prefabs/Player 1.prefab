@@ -126,7 +126,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -204,7 +204,7 @@ MonoBehaviour:
   isOnMagneticField: 0
   timeForRespawn: 0
   checkpoint: {fileID: 0}
-  jumpSpeed: 5
+  jumpSpeed: 8
   isGrounded: 0
   isDead: 0
   groundCheck: {fileID: 4697477341850780}
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothTime: 5
-  smoothSize: 5
+  smoothSize: 6.25
   cutscene: 1
 --- !u!124 &124656426101447288
 Behaviour:
