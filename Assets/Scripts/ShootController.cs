@@ -17,9 +17,7 @@ public class ShootController : MonoBehaviour {
 	void Update () {
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right);
 		Debug.DrawLine (transform.position, hit.point, Color.red);
-		gameObject = hit.transform.position;
 
 		distance = Mathf.Abs (hit.point.y - transform.position.y);
-		print (distance);
 	}
 }

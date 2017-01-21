@@ -64,7 +64,7 @@ public class LevelLoader : MonoBehaviour {
 
 		try{
 			GameObject prefab = colorToPrefabForReal[c];
-			GameObject go = Instantiate (prefab, new Vector3 (x, y, 0), Quaternion.identity);
+			GameObject go = Instantiate (prefab, new Vector3 (x, y, 0), prefab.transform.rotation);
 			go.transform.SetParent(transform);
 		}
 		catch(System.Exception e){

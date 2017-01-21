@@ -69,7 +69,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   side: 3
   polarity: 1
-  magneticSpeed: 1
+  magneticSpeed: 30
   sizeOfEffect: 10
   isRotational: 1
   secondsToWait: 5

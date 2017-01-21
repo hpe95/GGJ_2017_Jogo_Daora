@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4671682002788392}
   - component: {fileID: 212854012778302216}
-  m_Layer: 0
+  - component: {fileID: 68177614094633152}
+  m_Layer: 10
   m_Name: canto_curvo0001
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,6 +41,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &68177614094633152
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1269340114499724}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -0.49960402, y: -0.4992927}
+  - {x: -0.5002255, y: 0.4997935}
+  - {x: 0.5, y: 0.5003095}
 --- !u!212 &212854012778302216
 SpriteRenderer:
   m_ObjectHideFlags: 1
