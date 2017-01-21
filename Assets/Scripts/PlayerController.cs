@@ -31,21 +31,38 @@ public class PlayerController : MonoBehaviour {
 	public float jumpSpeed = 0f;
 	private bool facingRight = true;
 	public bool isGrounded;
+
+	public bool IsGrounded {
+		get {
+			print ("ola");
+			return isGrounded;
+
+		}
+		set {
+			print ("oi");
+			if (isGrounded == false && value == true) {
+				GetComponent<Animator> ().SetTrigger ("FallTrigger");
+			}
+			isGrounded = value;
+		}
+	}
+
 	public bool isDead = false;
 	private bool canJump = false;
 	public Transform groundCheck;
 	public float groundCheckRadius;
 	public LayerMask whatIsGround;
-
+	public Animator anim;
 	// Use this for initialization
 	void Start () {
 		pickups = new List<AllPossiblePickups.Pickups> ();
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
+		anim = GetComponent<Animator> ();
 	}
 
 	void FixedUpdate(){
-		isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
+		IsGrounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
 	}
 	// Update is called once per frame
 	void Update () {
@@ -53,14 +70,20 @@ public class PlayerController : MonoBehaviour {
 			Kill ();
 		}
 
-
+		if (Input.GetKeyDown (KeyCode.Z)) {
+		}
+			
 		if (!isDead) {
 			if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
 				rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
+
+			anim.SetBool ("Grounded", IsGrounded);
+			anim.SetFloat("JumpSpeed",rb.velocity.y);
 			ChangeFacingDirection ();
 			moveDirection = Input.GetAxis ("Horizontal");
 			this.Move (moveDirection);
 		}
+		anim.SetFloat ("Speed", Mathf.Abs(moveDirection));
 	}
 
 	private void Kill(){

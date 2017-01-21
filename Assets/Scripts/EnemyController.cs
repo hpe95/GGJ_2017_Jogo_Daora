@@ -81,4 +81,30 @@ public class EnemyController : MonoBehaviour {
 		radiusOfMovement = Random.Range (1f, 5f) * Mathf.Sign (radiusOfMovement * -1f);
 		walking = false;
 	}
+	private void FollowPlayer(){
+		Vector3 forward = new Vector3(transform.position.x - gameObject.transform.position.x, 0, 0);
+		forward.Normalize ();
+
+		if (!facingRight && forward.x > 0 || facingRight && forward.x < 0) {
+			return;
+		}
+
+		forward *= radiusOfSight;
+
+		Debug.DrawRay (gameObject.transform.position, forward, Color.green);
+
+		RaycastHit2D[] hit = Physics2D.RaycastAll (gameObject.transform.position, forward, radiusOfSight);
+		if (hit.Length > 1) {
+			if (hit [1].collider != null && hit [1].collider.tag == "Player") {
+				isFollowing = true;
+				Move (moveSpeed * side);
+			} else {
+				isFollowing = false;
+				rb.velocity = new Vector2 (0, rb.velocity.y);
+			}
+		} else {
+			isFollowing = false;
+			rb.velocity = new Vector2 (0, rb.velocity.y);
+		}
+	}
 }

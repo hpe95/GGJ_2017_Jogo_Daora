@@ -65,8 +65,16 @@ TextureImporter:
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
+<<<<<<< HEAD
     overridden: 1
+=======
+    overridden: 0
+<<<<<<< HEAD
+  - buildTarget: iPhone
+=======
+>>>>>>> 94ad88e7880450c03f536bcc76084dc8d181b85f
   - buildTarget: Android
+>>>>>>> 1846dae498137149a05795963a026478be1384ec
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -74,7 +82,11 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD
+  - buildTarget: Android
+=======
   - buildTarget: WebGL
+>>>>>>> 1846dae498137149a05795963a026478be1384ec
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1

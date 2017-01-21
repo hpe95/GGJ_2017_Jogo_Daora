@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114381024566966106}
   - component: {fileID: 50633208002123368}
   - component: {fileID: 61075199503293790}
+  - component: {fileID: 95914504857684150}
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -188,6 +189,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1132420962088434}
   m_Enabled: 1
+--- !u!95 &95914504857684150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1134199494211000}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b64cbf3055500f94a9a6e03e3416180c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114381024566966106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -200,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polarity: 0
-  moveSpeed: 10
+  moveSpeed: 3
   isOnMagneticField: 0
   timeForRespawn: 0
   checkpoint: {fileID: 0}
@@ -212,6 +230,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  anim: {fileID: 0}
 --- !u!114 &114679698321722672
 MonoBehaviour:
   m_ObjectHideFlags: 1
