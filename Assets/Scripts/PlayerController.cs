@@ -5,6 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	public Rigidbody2D rb;
+	private Polarity polarity;
+
+	public Polarity Polarity {
+		get {
+			return polarity;
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
