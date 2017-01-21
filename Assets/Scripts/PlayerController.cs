@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+	private bool coolDown = false;
 	public bool isDead = false;
 	private bool canJump = false;
 	public Transform groundCheck;
@@ -71,14 +72,14 @@ public class PlayerController : MonoBehaviour {
 			Kill ();
 		}
 			
-
-		ShootForce ();
+		if (!coolDown)
+			StartCoroutine (WaitForShoot ());
 
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * shootForce);
-		Debug.DrawLine (transform.position, hit.point, Color.red);
+		Debug.DrawRay (new Vector3(transform.position.x, transform.position.y,0), hit.point, Color.red, 10f, false);
 		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
 			distance = Mathf.Abs (hit.point.x - transform.position.x);
-			print (distance);
+			print ("entrou " + distance);
 		}
 
 		if (!isDead) {
@@ -111,6 +112,12 @@ public class PlayerController : MonoBehaviour {
 		sr.enabled = true;
 	}
 
+	IEnumerator WaitForShoot(){
+		ShootForce ();
+		yield return new WaitForSeconds (2);
+		coolDown = false;
+	}
+
 	private void Move(float moveDirection){
 		if (moveDirection < -EPS)
 			facingRight = false;
@@ -128,8 +135,10 @@ public class PlayerController : MonoBehaviour {
 
 	private void ShootForce(){
 		if (Input.GetKey(KeyCode.Z)) {
-			shootForce += Time.deltaTime;
+			shootForce += Time.deltaTime * 10;
+			print ("shoot " + shootForce);
 		}
+		coolDown = true;
 	}
 	private void ChangeFacingDirection(){
 		sr.flipX = facingRight;
