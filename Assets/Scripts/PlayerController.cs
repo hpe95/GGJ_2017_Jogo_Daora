@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-	private Polarity polarity;
+	public Polarity polarity;
 
 	public Polarity Polarity {
 		get {
@@ -14,6 +14,13 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed = 0f;
 
 	private Rigidbody2D rb;
+
+	public Rigidbody2D Rb {
+		get {
+			return rb;
+		}
+	}
+
 	private SpriteRenderer sr;
 	private float moveDirection = 0f;
 	public float jumpSpeed = 0f;
@@ -40,8 +47,9 @@ public class PlayerController : MonoBehaviour {
 			facingRight = true;
 
 		//this.ChangeFacingDirection ();
-		rb.velocity = new Vector2 (moveDirection * moveSpeed, rb.velocity.y);
-		print (rb.velocity);
+		if (moveDirection != 0) {
+			rb.velocity = new Vector2 (moveDirection * moveSpeed, rb.velocity.y);
+		}
 
 	}
 
