@@ -153,7 +153,7 @@ MonoBehaviour:
   polarity: 0
   playerLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1001 &1008546285
 Prefab:
   m_ObjectHideFlags: 0
@@ -193,6 +193,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1956003002765154, guid: 455b1f119b9089f47934f8e90cc1c69e, type: 2}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114551589371028736, guid: 455b1f119b9089f47934f8e90cc1c69e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 455b1f119b9089f47934f8e90cc1c69e, type: 2}
@@ -213,7 +217,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af848ffe78989ef4a8381a8ddbaeee66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  moveSpeed: 10
+  jumpSpeed: 5
+  isGrounded: 0
+--- !u!61 &1008546290
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1008546286}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+--- !u!50 &1008546291
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1008546286}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2052357496
 GameObject:
   m_ObjectHideFlags: 0
