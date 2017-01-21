@@ -116,7 +116,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.08627451, g: 0.078431375, b: 0.078431375, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -224,6 +224,7 @@ MonoBehaviour:
   checkpoint: {fileID: 0}
   jumpSpeed: 8
   isGrounded: 0
+  shootForce: 0
   isDead: 0
   groundCheck: {fileID: 4697477341850780}
   groundCheckRadius: 0.1
