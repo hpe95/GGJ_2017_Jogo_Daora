@@ -74,37 +74,14 @@ public class MagnetController : MonoBehaviour {
 
 		Collider2D maybePlayer = Physics2D.OverlapArea (pointA, pointB, 1 << LayerMask.NameToLayer("Player"));
 		if (maybePlayer != null) {
+			print ("entrou");
 			player.isOnMagneticField = true;
 
 			if(player.Rb.gravityScale != 0){
-				player.Rb.gravityScale = 0;
-				player.Rb.velocity = new Vector2 (0, 0);
-			}
-			if (Mathf.Abs (player.transform.position.y - transform.position.y) < EPS) {
-				player.Rb.velocity = new Vector2 (player.Rb.velocity.x, 0);
-			} else if(side == Side.Left || side == Side.Right) {
-				Vector2 dir;
-				if (player.transform.position.y > transform.position.y) {
-					dir = Vector2.down;
-				} else {
-					dir = Vector2.up;
-				}
-
-				player.Rb.velocity = new Vector2 (player.Rb.velocity.x, dir.y);
+				//player.Rb.gravityScale = 0;
+				//player.Rb.velocity = new Vector2 (0, 0);
 			}
 
-			if (Mathf.Abs (player.transform.position.x - transform.position.x) < EPS) {
-				player.Rb.velocity = new Vector2 (0, player.Rb.velocity.y);
-			} else if(side == Side.Up || side == Side.Down) {
-				Vector2 dir;
-				if (player.transform.position.x > transform.position.x) {
-					dir = Vector2.left;
-				} else {
-					dir = Vector2.right;
-				}
-					
-				player.Rb.velocity = new Vector2 (dir.x, player.Rb.velocity.y);
-			}
 
 			if (player.Polarity == polarity) {
 				player.Rb.AddForce (vectorSide [side] * magneticSpeed);

@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		FollowPlayer ();
+		// FollowPlayer ();
 		if (!walking && !isFollowing) {
 			walking = true;
 			StartCoroutine (Walking ());
@@ -58,7 +58,6 @@ public class EnemyController : MonoBehaviour {
 
 	private void ChangeFacingDirection(){
 		sr.flipX = facingRight;
-		print ("oi");
 	}
 
 	IEnumerator Walking(){
@@ -77,14 +76,11 @@ public class EnemyController : MonoBehaviour {
 			yield return null;
 		}
 
-		float seconds = Random.Range (0.5f, 2f);
-		yield return new WaitForSeconds (seconds);
+
 
 		radiusOfMovement = Random.Range (1f, 5f) * Mathf.Sign (radiusOfMovement * -1f);
 		walking = false;
 	}
-
-
 	private void FollowPlayer(){
 		Vector3 forward = new Vector3(transform.position.x - gameObject.transform.position.x, 0, 0);
 		forward.Normalize ();

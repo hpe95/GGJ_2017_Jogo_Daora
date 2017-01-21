@@ -69,13 +69,11 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Y)){ // Só pra testar
 			Kill ();
 		}
-
-
-		if (!isDead && !isOnMagneticField) {
-			if (Input.GetKeyDown (KeyCode.Space) && IsGrounded) {
+			
+		if (!isDead) {
+			if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
 				rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
 
-			}
 			anim.SetBool ("Grounded", IsGrounded);
 			anim.SetFloat("JumpSpeed",rb.velocity.y);
 			ChangeFacingDirection ();
@@ -112,6 +110,8 @@ public class PlayerController : MonoBehaviour {
 		if (moveDirection != 0) {
 			rb.velocity = new Vector2 (moveDirection * moveSpeed, rb.velocity.y);
 		}
+		if (isGrounded && Mathf.Abs (moveDirection) < EPS)
+			rb.velocity = new Vector2 (0, rb.velocity.y);
 
 	}
 
