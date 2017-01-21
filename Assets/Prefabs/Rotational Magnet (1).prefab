@@ -67,13 +67,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d9d9cd94c9512042aabb54494233c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 2
-  polarity: 0
+  side: 3
+  polarity: 1
   magneticSpeed: 1
   sizeOfEffect: 10
   isRotational: 1
   secondsToWait: 5
-  online: 1
 --- !u!212 &212743446058728312
 SpriteRenderer:
   m_ObjectHideFlags: 1
