@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
-	
+		sr = GetComponent<SpriteRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -39,9 +39,7 @@ public class PlayerController : MonoBehaviour {
 		else
 			facingRight = true;
 
-		//this.ChangeFacingDirection ();
 		rb.velocity = new Vector2 (moveDirection * moveSpeed, rb.velocity.y);
-		print (rb.velocity);
 
 	}
 
@@ -66,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	/*private void ChangeFacingDirection(){
+	private void ChangeFacingDirection(){
 		sr.flipX = facingRight;
-	}*/
+	}
 }
