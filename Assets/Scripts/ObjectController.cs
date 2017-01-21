@@ -6,10 +6,10 @@ public class ObjectController : MonoBehaviour {
 	public bool gotHit = false;
 
 	private Vector3 newPos;
-	private ShootController shoot;
+	private PlayerController shoot;
 	// Use this for initialization
 	void Start () {
-		shoot = FindObjectOfType<ShootController> ();
+		shoot = FindObjectOfType<PlayerController> ();
 	}
 	
 	// Update is called once per frame

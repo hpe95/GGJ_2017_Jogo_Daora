@@ -23,9 +23,10 @@ public class ShootController : MonoBehaviour {
 		Debug.DrawLine (transform.position, hit.point, Color.red);
 		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
 			distance = Mathf.Abs (hit.point.x - transform.position.x);
+			print (distance);
 		}
 		
 
-		print (distance);
+
 	}
 }

@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private List<AllPossiblePickups.Pickups> pickups;
-	private const float EPS = 1e-6f;	
+	private const float EPS = 1e-6f;
+	private float distance = 0f;
 	public bool isOnMagneticField = false;
 	public float timeForRespawn;
 	public Transform checkpoint;
@@ -69,11 +70,17 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Y)){ // Só pra testar
 			Kill ();
 		}
-
-		if (Input.GetKeyDown (KeyCode.Z)) {
-			shootForce += Time.deltaTime;
-		}
 			
+
+		ShootForce ();
+
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * shootForce);
+		Debug.DrawLine (transform.position, hit.point, Color.red);
+		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
+			distance = Mathf.Abs (hit.point.x - transform.position.x);
+			print (distance);
+		}
+
 		if (!isDead) {
 			if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
 				rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
@@ -119,7 +126,11 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-
+	private void ShootForce(){
+		if (Input.GetKey(KeyCode.Z)) {
+			shootForce += Time.deltaTime;
+		}
+	}
 	private void ChangeFacingDirection(){
 		sr.flipX = facingRight;
 	}
