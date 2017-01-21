@@ -30,8 +30,12 @@ public class PlayerController : MonoBehaviour {
 	private float moveDirection = 0f;
 	public float jumpSpeed = 0f;
 	private bool facingRight = true;
-	public bool isGrounded = false;
+	public bool isGrounded;
 	public bool isDead = false;
+	private bool canJump = false;
+	public Transform groundCheck;
+	public float groundCheckRadius;
+	public LayerMask whatIsGround;
 
 	// Use this for initialization
 	void Start () {
@@ -39,18 +43,23 @@ public class PlayerController : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
 	}
-	
+
+	void FixedUpdate(){
+		isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundCheckRadius, whatIsGround);
+	}
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Y)){ // Só pra testar
 			Kill ();
 		}
 
+
 		if (!isDead && !isOnMagneticField) {
+			if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
+				rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
 			ChangeFacingDirection ();
 			moveDirection = Input.GetAxis ("Horizontal");
 			this.Move (moveDirection);
-			this.Jump ();
 		}
 	}
 
@@ -84,26 +93,6 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-	private void Jump(){
-		if (!isGrounded ) {
-			return;
-		} else if(Input.GetKeyDown (KeyCode.Space)){
-			rb.velocity = new Vector2 (rb.velocity.x, jumpSpeed);
-			isGrounded = false;
-		}
-	}
-
-	void OnCollisionStay2D(Collision2D col){
-		if (col.gameObject.tag == "Ground") {
-			isGrounded = true;
-		}
-	}
-
-	void OnCollisionExit2D(Collision2D col){
-		if (col.gameObject.tag == "Ground") {
-			isGrounded = false;
-		}
-	}
 
 	private void ChangeFacingDirection(){
 		sr.flipX = facingRight;
