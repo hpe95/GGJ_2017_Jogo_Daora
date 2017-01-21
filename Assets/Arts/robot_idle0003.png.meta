@@ -1,13 +1,11 @@
 fileFormatVersion: 2
 guid: 5ba5a04666541034b8dab7e4c3b7f760
-timeCreated: 1484997046
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -28,11 +26,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: 0
-<<<<<<< HEAD
-    aniso: 16
-=======
     aniso: -1
->>>>>>> 1846dae498137149a05795963a026478be1384ec
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -63,6 +57,14 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
   - buildTarget: Standalone
+    maxTextureSize: 8192
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+  - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
@@ -70,23 +72,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD
-  - buildTarget: iPhone
-=======
-  - buildTarget: Android
->>>>>>> 1846dae498137149a05795963a026478be1384ec
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-<<<<<<< HEAD
-  - buildTarget: Android
-=======
   - buildTarget: WebGL
->>>>>>> 1846dae498137149a05795963a026478be1384ec
     maxTextureSize: 2048
     textureFormat: -1
     textureCompression: 1
