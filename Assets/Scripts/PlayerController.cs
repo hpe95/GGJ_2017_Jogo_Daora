@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Y)){ // Só pra testar
 			Kill ();
 		}
+
+		if (Input.GetKeyDown (KeyCode.Z)) {
+		}
 			
 		if (!isDead) {
 			if(Input.GetKeyDown(KeyCode.Space) && isGrounded)
