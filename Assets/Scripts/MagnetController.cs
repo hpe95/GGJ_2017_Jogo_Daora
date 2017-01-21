@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum Side { Right, Left, Up, Down }
+public enum Side { Right, Up, Left, Down }
 public enum Polarity {Positive, Negative}
 
 public class MagnetController : MonoBehaviour {
 	public Side side;
 	public Polarity polarity;
-	public LayerMask playerLayerMask;
 	public float magneticSpeed;
 	public float sizeOfEffect;
+	public bool isRotational;
+	public float secondsToWait;
 
+	private bool online = true;
 	private const float EPS = 0.1f;
 	private float originalGravityScale;
-
+	private bool isRotating = false;
 	private PlayerController player;
+	private SpriteRenderer sr;
 
 	Dictionary<Side, Vector2> vectorSide = new Dictionary<Side, Vector2>(){
 		{Side.Right, Vector2.right},
@@ -29,15 +32,35 @@ public class MagnetController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		player = FindObjectOfType<PlayerController> ();
-
+		sr = GetComponent<SpriteRenderer> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (player.Rb.gravityScale != 0) {
-			originalGravityScale = player.Rb.gravityScale;
+		if (online) {
+			if (polarity == Polarity.Positive) {
+				sr.color = Color.red;
+			} else {
+				sr.color = Color.blue;
+			}
+
+			if (player.Rb.gravityScale != 0) {
+				originalGravityScale = player.Rb.gravityScale;
+			}
+			if (!player.isDead) {
+				detectPlayer ();
+			}
+			if (isRotational && !isRotating) {
+				isRotating = true;
+				StartCoroutine (Rotate ());
+			}
 		}
-		detectPlayer ();
+	}
+
+	private IEnumerator Rotate(){
+		yield return new WaitForSeconds (secondsToWait);
+		side = (Side) (((int)side + 1) % 4);
+		isRotating = false;
 	}
 
 	private void detectPlayer(){
@@ -51,6 +74,8 @@ public class MagnetController : MonoBehaviour {
 
 		Collider2D maybePlayer = Physics2D.OverlapArea (pointA, pointB, 1 << LayerMask.NameToLayer("Player"));
 		if (maybePlayer != null) {
+			player.isOnMagneticField = true;
+
 			if(player.Rb.gravityScale != 0){
 				player.Rb.gravityScale = 0;
 				player.Rb.velocity = new Vector2 (0, 0);
@@ -69,10 +94,8 @@ public class MagnetController : MonoBehaviour {
 			}
 
 			if (Mathf.Abs (player.transform.position.x - transform.position.x) < EPS) {
-				print ("ola");
 				player.Rb.velocity = new Vector2 (0, player.Rb.velocity.y);
 			} else if(side == Side.Up || side == Side.Down) {
-				print ("oi");
 				Vector2 dir;
 				if (player.transform.position.x > transform.position.x) {
 					dir = Vector2.left;
@@ -90,9 +113,23 @@ public class MagnetController : MonoBehaviour {
 			}
 		} else {
 			player.Rb.gravityScale = originalGravityScale;
+			if(player.isOnMagneticField){
+				Vector2 distV = player.transform.position - transform.position;
+				print (Mathf.Abs (distV.magnitude - sizeOfEffect));
+				if (Mathf.Abs (distV.magnitude - sizeOfEffect) < 0.6f) {
+					StartCoroutine (disableForAInstant ());
+				}
+			}
+			player.isOnMagneticField = false;
 		}
 			
 		Debug.DrawLine (pointA, pointB);
+	}
+
+	private IEnumerator disableForAInstant(){
+		online = false;
+		yield return new WaitForSeconds (0.5f);
+		online = true;
 	}
 
 	private Vector2 Rotate(Vector2 v, float degrees){
