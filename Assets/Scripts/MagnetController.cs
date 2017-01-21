@@ -59,7 +59,7 @@ public class MagnetController : MonoBehaviour {
 
 	private IEnumerator Rotate(){
 		yield return new WaitForSeconds (secondsToWait);
-		side = (Side) (((int)side + 1) % 4);
+		polarity = (Polarity) (((int)polarity + 1) % 2);
 		isRotating = false;
 	}
 

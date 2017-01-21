@@ -21,11 +21,11 @@ public class ShootController : MonoBehaviour {
 		force = player.shootForce;
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * force);
 		Debug.DrawLine (transform.position, hit.point, Color.red);
+
 		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
 			distance = Mathf.Abs (hit.point.x - transform.position.x);
 			print (distance);
 		}
-		
 
 
 	}

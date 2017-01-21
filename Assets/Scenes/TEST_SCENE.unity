@@ -138,7 +138,7 @@ MonoBehaviour:
     prefab: {fileID: 1716801011778348, guid: 6a05d6eca9e18034687c6d9e7e9cf4c8, type: 2}
   - color:
       serializedVersion: 2
-      rgba: 4294836224
+      rgba: 4284743680
     prefab: {fileID: 1000389587641028, guid: dfc3c5f252280c5469f7d764ec3a8347, type: 2}
   - color:
       serializedVersion: 2
@@ -184,6 +184,26 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4278190082
     prefab: {fileID: 1879536260121310, guid: 7e08a4f5cb48457499b92c4566e021a3, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4278190083
+    prefab: {fileID: 1133712437458748, guid: ff1f94cfe6c3e1a4390fabf134d70605, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4278190084
+    prefab: {fileID: 1466985905592300, guid: 7b0ccdc69eea1c541bb1c7d09d7949b1, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4284743940
+    prefab: {fileID: 1466985905592300, guid: 7b0ccdc69eea1c541bb1c7d09d7949b1, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4278190084
+    prefab: {fileID: 1466985905592300, guid: 7b0ccdc69eea1c541bb1c7d09d7949b1, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4278190084
+    prefab: {fileID: 1466985905592300, guid: 7b0ccdc69eea1c541bb1c7d09d7949b1, type: 2}
 --- !u!4 &1264737133
 Transform:
   m_ObjectHideFlags: 0
