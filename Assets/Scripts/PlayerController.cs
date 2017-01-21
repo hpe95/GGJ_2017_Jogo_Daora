@@ -34,12 +34,10 @@ public class PlayerController : MonoBehaviour {
 	public float shootForce = 0f;
 	public bool IsGrounded {
 		get {
-			print ("ola");
 			return isGrounded;
 
 		}
 		set {
-			print ("oi");
 			if (isGrounded == false && value == true) {
 				GetComponent<Animator> ().SetTrigger ("FallTrigger");
 			}
