@@ -98,7 +98,6 @@ public class EnemyController : MonoBehaviour {
 		Debug.DrawRay (gameObject.transform.position, forward, Color.green);
 
 		RaycastHit2D[] hit = Physics2D.RaycastAll (gameObject.transform.position, forward, radiusOfSight);
-
 		if (hit.Length > 1) {
 			if (hit [1].collider != null && hit [1].collider.tag == "Player") {
 				isFollowing = true;
