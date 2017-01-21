@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 	public float jumpSpeed = 0f;
 	private bool facingRight = true;
 	public bool isGrounded;
-
+	public float shootForce = 0f;
 	public bool IsGrounded {
 		get {
 			print ("ola");
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (KeyCode.Z)) {
+			shootForce += Time.deltaTime;
 		}
 			
 		if (!isDead) {

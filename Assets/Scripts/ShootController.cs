@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootController : MonoBehaviour {
-	private float distance = 0f;
-	public GameObject gameObject;
+	public float distance = 0f;
+	public float force = 0f;
+	private PlayerController player;
 	// Use this for initialization
 	void Start () {
-		GameObject player = GameObject.Find ("Player");
+		player = FindObjectOfType<PlayerController> ();
+
 		Transform playerTransform = player.transform;
 		Vector2 pos = playerTransform.position;
 		transform.position = new Vector2 (pos.x, pos.y);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right);
+		force = player.shootForce;
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * force);
 		Debug.DrawLine (transform.position, hit.point, Color.red);
-		gameObject = hit.transform.position;
+		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
+			distance = Mathf.Abs (hit.point.x - transform.position.x);
+		}
+		
 
-		distance = Mathf.Abs (hit.point.y - transform.position.y);
 		print (distance);
 	}
 }
