@@ -127,7 +127,7 @@ MonoBehaviour:
   - color:
       serializedVersion: 2
       rgba: 4278255360
-    prefab: {fileID: 1956003002765154, guid: 455b1f119b9089f47934f8e90cc1c69e, type: 2}
+    prefab: {fileID: 1134199494211000, guid: ae31cf06bb0603f4a861a586d3ac1b29, type: 2}
   - color:
       serializedVersion: 2
       rgba: 4278190335
