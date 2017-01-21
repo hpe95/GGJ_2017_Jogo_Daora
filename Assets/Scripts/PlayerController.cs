@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+	private Polarity polarity;
+
+	public Polarity Polarity {
+		get {
+			return polarity;
+		}
+	}
 	public float moveSpeed = 0f;
 
 	private Rigidbody2D rb;
