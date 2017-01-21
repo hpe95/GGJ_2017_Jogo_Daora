@@ -138,8 +138,8 @@ MonoBehaviour:
     prefab: {fileID: 1716801011778348, guid: 6a05d6eca9e18034687c6d9e7e9cf4c8, type: 2}
   - color:
       serializedVersion: 2
-      rgba: 4294902016
-    prefab: {fileID: 1212193155313652, guid: 252a2514063209647bea053dfee62958, type: 2}
+      rgba: 4294836224
+    prefab: {fileID: 1000389587641028, guid: dfc3c5f252280c5469f7d764ec3a8347, type: 2}
   - color:
       serializedVersion: 2
       rgba: 4278190280
@@ -148,6 +148,34 @@ MonoBehaviour:
       serializedVersion: 2
       rgba: 4278190536
     prefab: {fileID: 1132754702870442, guid: 83a1d6d1d26f28a4897eb314f5015a0a, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836225
+    prefab: {fileID: 1919745934722658, guid: 1a8dcb408a4750c4f95b74b5bf3c1933, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836226
+    prefab: {fileID: 1225690024889732, guid: c61f22b02208c4f479dcbe09c4c477d3, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836227
+    prefab: {fileID: 1629734422804670, guid: c2f2d755da380b14082ddb4d377f37d4, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836480
+    prefab: {fileID: 1236465933181716, guid: 66fe0f157a01257468374fe57b7f3caf, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836481
+    prefab: {fileID: 1800708516682662, guid: 4703ecee228b5734298766a43b8501fe, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836482
+    prefab: {fileID: 1433977812749622, guid: 0d021107f47bbcc45b1b92fc0abdf28e, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4294836483
+    prefab: {fileID: 1008231536636986, guid: 3710022f01eca164e9b2ca1eb9eabf49, type: 2}
 --- !u!4 &1264737133
 Transform:
   m_ObjectHideFlags: 0
