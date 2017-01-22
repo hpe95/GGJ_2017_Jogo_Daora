@@ -9,6 +9,17 @@ public enum Polarity {Positive, Negative}
 public class MagnetController : MonoBehaviour {
 	public Side side;
 	public Polarity polarity;
+
+	public Polarity Polarity {
+		get {
+			return polarity;
+		}
+		set {
+			
+			polarity = value;
+		}
+	}
+
 	public float magneticSpeed;
 	public float sizeOfEffect;
 	public bool isRotational;
@@ -20,7 +31,9 @@ public class MagnetController : MonoBehaviour {
 	private bool isRotating = false;
 	private PlayerController player;
 	private SpriteRenderer sr;
-
+	private Animator anim;
+	private bool isBlue = false;
+	private bool transistion;
 	Dictionary<Side, Vector2> vectorSide = new Dictionary<Side, Vector2>(){
 		{Side.Right, Vector2.right},
 		{Side.Left, Vector2.left},
@@ -33,17 +46,27 @@ public class MagnetController : MonoBehaviour {
 	void Start () {
 		player = FindObjectOfType<PlayerController> ();
 		sr = GetComponent<SpriteRenderer> ();
+		anim = GetComponent<Animator> ();
+
+
+
+		if (polarity == Polarity.Positive) {
+			isBlue = false;
+		} else {
+			isBlue = true;
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
 		if (online) {
 			if (polarity == Polarity.Positive) {
-				sr.color = Color.red;
+				isBlue = false;
 			} else {
-				sr.color = Color.blue;
+				isBlue = true;
 			}
-
+			anim.SetBool ("isOrange", polarity == Polarity.Positive);
+			bool qlqrcoisa = polarity == Polarity.Negative;
 			if (player.Rb.gravityScale != 0) {
 				originalGravityScale = player.Rb.gravityScale;
 			}
@@ -54,6 +77,7 @@ public class MagnetController : MonoBehaviour {
 				isRotating = true;
 				StartCoroutine (Rotate ());
 			}
+			anim.SetBool ("transistion", isRotating == !qlqrcoisa);
 		}
 	}
 

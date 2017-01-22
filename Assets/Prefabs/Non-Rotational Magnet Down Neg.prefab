@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212063844427011008}
   - component: {fileID: 61658907955650352}
   - component: {fileID: 114148572066157990}
+  - component: {fileID: 95143382186670384}
   m_Layer: 10
   m_Name: Non-Rotational Magnet Down Neg
   m_TagString: Ground
@@ -36,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000389587641028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.863373, y: 2.892932, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 32.26, y: 38.7, z: 0}
+  m_LocalScale: {x: 8.198393, y: 8.198382, z: 8.198382}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,6 +57,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!95 &95143382186670384
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000389587641028}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fdb4c67f7b261343aaacbbd28adb721, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114148572066157990
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +122,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bd43fa4ec2d45a4485c8b2da99db50d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53f16029fcdbb19498ddc243b9b6a3a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
