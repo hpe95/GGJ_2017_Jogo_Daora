@@ -9,6 +9,7 @@ public class ObjectController : MonoBehaviour {
 	private PlayerController shoot;
 	private Rigidbody2D rb;
 	private bool canShoot = false;
+
 	// Use this for initialization
 	void Start () {
 		shoot = FindObjectOfType<PlayerController> ();
@@ -17,21 +18,19 @@ public class ObjectController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!canShoot) {
-			StartCoroutine (Wait ());
+		if (shoot.shootForce != 0) {
+			if (!canShoot) {
+				StartCoroutine (Wait ());
+			}
 		}
 	}
 
 	IEnumerator Wait(){
 		canShoot = true;
-		if(canShoot && shoot.shootForce != 0){
-			newPos = transform.position;
-			newPos.x = shoot.shootForce;
-			transform.position = newPos;
+		if(canShoot){
+			rb.AddForce (new Vector2 (shoot.shootForce, 0));
 		}
-			//rb.AddForce (new Vector2 (shoot.shootForce, rb.velocity.y));
-		yield return new WaitForSeconds (1f);
-		//rb.AddForce (new Vector2 (0, 0));
+		yield return new WaitForSeconds (2f);
 		canShoot = false;
 	}
 		
