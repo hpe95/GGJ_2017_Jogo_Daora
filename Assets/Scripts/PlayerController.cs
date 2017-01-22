@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private bool coolDown = false;
+	public bool coolDown = false;
 	public bool isDead = false;
 	private bool canJump = false;
 	public Transform groundCheck;
@@ -54,11 +54,13 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask whatIsGround;
 	public Animator anim;
 	// Use this for initialization
+	private ObjectController oc;
 	void Start () {
 		pickups = new List<AllPossiblePickups.Pickups> ();
 		rb = GetComponent<Rigidbody2D> ();
 		sr = GetComponent<SpriteRenderer> ();
 		anim = GetComponent<Animator> ();
+		oc = FindObjectOfType<ObjectController> ();
 	}
 
 	void FixedUpdate(){
@@ -74,7 +76,7 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine (WaitForShoot ());
 
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * shootForce);
-		Debug.DrawRay (new Vector3(transform.position.x, transform.position.y,0), hit.point, Color.red, 10f, false);
+		Debug.DrawLine(transform.position, hit.point);
 		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
 			distance = Mathf.Abs (hit.point.x - transform.position.x);
 			print ("entrou " + distance);
@@ -112,7 +114,11 @@ public class PlayerController : MonoBehaviour {
 
 	IEnumerator WaitForShoot(){
 		ShootForce ();
-		yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds (1);
+		var teste = oc.GetComponent<Transform> ().position;
+		teste.x = teste.x - 0.000001f;
+		oc.GetComponent<Transform> ().position = teste;
+		shootForce = 0f;
 		coolDown = false;
 	}
 
@@ -122,7 +128,6 @@ public class PlayerController : MonoBehaviour {
 		else if (moveDirection > EPS)
 			facingRight = true;
 
-		//this.ChangeFacingDirection ();
 		if (moveDirection != 0) {
 			rb.velocity = new Vector2 (moveDirection * moveSpeed, rb.velocity.y);
 		}
@@ -132,11 +137,16 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void ShootForce(){
-		if (Input.GetKey(KeyCode.Z)) {
-			shootForce += Time.deltaTime * 10;
-			print ("shoot " + shootForce);
+		int i = 0;
+		while (Input.GetKey (KeyCode.Z)) {
+			if (i == 10) {
+				break;
+			}
+			shootForce += i*5;
+			i++;
 		}
 		coolDown = true;
+
 	}
 	private void ChangeFacingDirection(){
 		sr.flipX = facingRight;
