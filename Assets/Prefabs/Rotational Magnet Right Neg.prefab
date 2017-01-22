@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212660008666762858}
   - component: {fileID: 61427668266355234}
   - component: {fileID: 114386617274369882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rotational Magnet Right Neg
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

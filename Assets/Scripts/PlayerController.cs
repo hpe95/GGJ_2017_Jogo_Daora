@@ -156,4 +156,10 @@ public class PlayerController : MonoBehaviour {
 			obj.TryToUse (ref pickups);
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.layer == LayerMask.NameToLayer("Killable Objects")) {
+			Kill ();
+		}
+	}
 }
