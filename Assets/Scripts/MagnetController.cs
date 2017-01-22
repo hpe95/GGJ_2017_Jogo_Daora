@@ -20,6 +20,7 @@ public class MagnetController : MonoBehaviour {
 	private bool isRotating = false;
 	private PlayerController player;
 	private SpriteRenderer sr;
+	private bool abled = true;
 
 	Dictionary<Side, Vector2> vectorSide = new Dictionary<Side, Vector2>(){
 		{Side.Right, Vector2.right},
@@ -74,7 +75,6 @@ public class MagnetController : MonoBehaviour {
 
 		Collider2D maybePlayer = Physics2D.OverlapArea (pointA, pointB, 1 << LayerMask.NameToLayer("Player"));
 		if (maybePlayer != null) {
-			print ("entrou");
 			player.isOnMagneticField = true;
 
 			if(player.Rb.gravityScale != 0){
@@ -82,25 +82,22 @@ public class MagnetController : MonoBehaviour {
 				//player.Rb.velocity = new Vector2 (0, 0);
 			}
 
-
 			if (player.Polarity == polarity) {
 				player.Rb.AddForce (vectorSide [side] * magneticSpeed);
 			} else {
 				player.Rb.AddForce (-vectorSide [side] * magneticSpeed);
 			}
+
 		} else {
-			player.Rb.gravityScale = originalGravityScale;
+			// player.Rb.gravityScale = originalGravityScale;
 			if(player.isOnMagneticField){
 				Vector2 distV = player.transform.position - transform.position;
-				print (Mathf.Abs (distV.magnitude - sizeOfEffect));
 				if (Mathf.Abs (distV.magnitude - sizeOfEffect) < 0.6f) {
 					StartCoroutine (disableForAInstant ());
 				}
 			}
 			player.isOnMagneticField = false;
 		}
-			
-		Debug.DrawLine (pointA, pointB);
 	}
 
 	private IEnumerator disableForAInstant(){
@@ -120,10 +117,6 @@ public class MagnetController : MonoBehaviour {
 		v.y = (sin * tx) + (cos * ty);
 
 		return v;
-	}
-
-	public void TurnOn(){
-
 	}
 
 	private float easeInOutSine(float t, float b, float c, float d){
