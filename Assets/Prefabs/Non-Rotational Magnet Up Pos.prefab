@@ -91,6 +91,7 @@ MonoBehaviour:
   sizeOfEffect: 10
   isRotational: 0
   secondsToWait: 5
+  beam: {fileID: 21300000, guid: 44724d1d92840454b933db4e945542e9, type: 3}
   online: 1
 --- !u!212 &212290969256756028
 SpriteRenderer:

@@ -28,6 +28,7 @@ public class MagnetController : MonoBehaviour {
 	public float sizeOfEffect;
 	public bool isRotational;
 	public float secondsToWait;
+	public Sprite beam;
 
 	public bool online = true;
 	private const float EPS = 0.1f;
@@ -52,6 +53,10 @@ public class MagnetController : MonoBehaviour {
 		sr = GetComponent<SpriteRenderer> ();
 		anim = GetComponent<Animator> ();
 
+		RaycastHit2D[] hit = Physics2D.RaycastAll (transform.position, vectorSide[side], 10000, 1 << LayerMask.NameToLayer("Ground"));
+		if (hit != null && hit.Length > 1) {
+			Vector2 dist = hit [1].transform.position - transform.position;
+		}
 
 
 		if (polarity == Polarity.Positive) {

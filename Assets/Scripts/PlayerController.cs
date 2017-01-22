@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isOnMagneticField = false;
 	public float timeForRespawn;
 	public Transform checkpoint;
-	private SpriteRenderer sr;
+	public SpriteRenderer sr;
 	private float moveDirection = 0f;
 	public float jumpSpeed = 0f;
 	private bool facingRight = true;
@@ -124,7 +124,7 @@ public class PlayerController : MonoBehaviour {
 		coolDown = false;
 	}
 
-	private void Move(float moveDirection){
+	public void Move(float moveDirection){
 		if (moveDirection < -EPS)
 			facingRight = false;
 		else if (moveDirection > EPS)
