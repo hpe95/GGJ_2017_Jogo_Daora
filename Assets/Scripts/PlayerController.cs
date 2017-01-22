@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour {
 	public float groundCheckRadius;
 	public LayerMask whatIsGround;
 	public Animator anim;
+
+	private float timeToShoot = 0f;
 	// Use this for initialization
 	private ObjectController oc;
 	void Start () {
@@ -75,8 +77,11 @@ public class PlayerController : MonoBehaviour {
 		if (!coolDown)
 			StartCoroutine (WaitForShoot ());
 
-		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right * shootForce);
-		Debug.DrawLine(transform.position, hit.point);
+		print (timeToShoot/10);
+		anim.SetFloat ("TimeToShoot", timeToShoot);
+		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right, 1000000, 1 << LayerMask.NameToLayer("Box"));
+		print (hit.collider.gameObject.transform.position);
+		Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position);
 		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
 			distance = Mathf.Abs (hit.point.x - transform.position.x);
 			print ("entrou " + distance);
@@ -137,14 +142,15 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	private void ShootForce(){
-		int i = 0;
+		timeToShoot = 0;
 		while (Input.GetKey (KeyCode.Z)) {
-			if (i == 10) {
+			if (timeToShoot == 10) {
 				break;
 			}
-			shootForce += i*5;
-			i++;
+			shootForce += timeToShoot*5;
+			timeToShoot++;
 		}
+		anim.SetTrigger ("ShootingTrigger");
 		coolDown = true;
 
 	}
