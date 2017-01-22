@@ -14,7 +14,7 @@ public class MagnetController : MonoBehaviour {
 	public bool isRotational;
 	public float secondsToWait;
 
-	private bool online = true;
+	public bool online = true;
 	private const float EPS = 0.1f;
 	private float originalGravityScale;
 	private bool isRotating = false;
@@ -120,6 +120,10 @@ public class MagnetController : MonoBehaviour {
 		v.y = (sin * tx) + (cos * ty);
 
 		return v;
+	}
+
+	public void TurnOn(){
+
 	}
 
 	private float easeInOutSine(float t, float b, float c, float d){

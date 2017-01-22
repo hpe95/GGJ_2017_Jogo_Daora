@@ -68,6 +68,10 @@ public class LevelLoader : MonoBehaviour {
 				oldColor = c;
 				c = new Color32(0, c.g, c.b, c.a);
 			}
+			if(c.r == 20){
+				oldColor = c;
+				c = new Color32(20, 0, 0, 255);
+			}
 			GameObject prefab = colorToPrefabForReal[c];
 			GameObject go = Instantiate (prefab, new Vector3 (x, y, 0), prefab.transform.rotation);
 			go.transform.SetParent(transform);
@@ -75,7 +79,11 @@ public class LevelLoader : MonoBehaviour {
 				MagnetController magnet = go.GetComponent<MagnetController>();
 				magnet.secondsToWait = oldColor.r;
 			}
-
+			if(c.r == 20){
+				LeverController lever = go.GetComponent<LeverController>();
+				lever.x = oldColor.g;
+				lever.y = oldColor.b;
+			}
 		}
 		catch(System.Exception e){
 			print (e);

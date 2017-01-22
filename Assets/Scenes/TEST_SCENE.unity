@@ -91,48 +91,6 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &1122215097
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 29.192593
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 34.4825
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936756622841406, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 46ffc608311cb5c4087bca7850e9a6b8, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1264737131
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +211,10 @@ MonoBehaviour:
   - color:
       serializedVersion: 2
       rgba: 4278190130
+    prefab: {fileID: 1658192192443184, guid: ad347a48e6519714285b9bb31f746b21, type: 2}
+  - color:
+      serializedVersion: 2
+      rgba: 4278190100
     prefab: {fileID: 1658192192443184, guid: ad347a48e6519714285b9bb31f746b21, type: 2}
 --- !u!4 &1264737133
 Transform:
