@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212738986486241310}
   - component: {fileID: 61381737371664152}
   - component: {fileID: 114516885926939178}
+  - component: {fileID: 95930087147130748}
   m_Layer: 10
   m_Name: Non-Rotational Magnet Right Neg
   m_TagString: Ground
@@ -56,6 +57,23 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!95 &95930087147130748
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1919745934722658}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1fdb4c67f7b261343aaacbbd28adb721, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114516885926939178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -68,11 +86,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   side: 0
-  polarity: 1
-  magneticSpeed: 30
+  _polarity: 0
+  magneticSpeed: 20
   sizeOfEffect: 10
   isRotational: 0
   secondsToWait: 5
+  online: 1
 --- !u!212 &212738986486241310
 SpriteRenderer:
   m_ObjectHideFlags: 1

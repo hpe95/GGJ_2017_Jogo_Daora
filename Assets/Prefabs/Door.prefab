@@ -9,95 +9,70 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1225690024889732}
+  m_RootGameObject: {fileID: 1290413745131772}
   m_IsPrefabParent: 1
---- !u!1 &1225690024889732
+--- !u!1 &1290413745131772
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4606448343859458}
-  - component: {fileID: 212692442947974798}
-  - component: {fileID: 61980928416756592}
-  - component: {fileID: 114130387779666110}
-  - component: {fileID: 95807309718617178}
-  m_Layer: 10
-  m_Name: Non-Rotational Magnet Up Neg
-  m_TagString: Ground
+  - component: {fileID: 4495602558883698}
+  - component: {fileID: 212768902191069528}
+  - component: {fileID: 114515952619372568}
+  - component: {fileID: 61794086029244830}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4606448343859458
+--- !u!4 &4495602558883698
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225690024889732}
+  m_GameObject: {fileID: 1290413745131772}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.863373, y: 2.892932, z: 0}
+  m_LocalPosition: {x: 8.402431, y: 2.1706285, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61980928416756592
+--- !u!61 &61794086029244830
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225690024889732}
+  m_GameObject: {fileID: 1290413745131772}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
---- !u!95 &95807309718617178
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225690024889732}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1fdb4c67f7b261343aaacbbd28adb721, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114130387779666110
+  m_Size: {x: 0.125, y: 0.125}
+--- !u!114 &114515952619372568
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225690024889732}
+  m_GameObject: {fileID: 1290413745131772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d9d9cd94c9512042aabb54494233c2b, type: 3}
+  m_Script: {fileID: 11500000, guid: f5090a5234706c2429ddee7f8279782a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 1
-  _polarity: 0
-  magneticSpeed: 20
-  sizeOfEffect: 10
-  isRotational: 0
-  secondsToWait: 5
-  online: 1
---- !u!212 &212692442947974798
+--- !u!212 &212768902191069528
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1225690024889732}
+  m_GameObject: {fileID: 1290413745131772}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -123,7 +98,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0bd43fa4ec2d45a4485c8b2da99db50d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 278e3ed0b810f1b4dabac68c56ceb24a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

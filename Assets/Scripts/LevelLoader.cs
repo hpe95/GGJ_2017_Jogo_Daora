@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ColorToPrefab{
@@ -19,6 +19,10 @@ public class LevelLoader : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		StartThisShit ();
+	}
+
+	void StartThisShit(){
 		levelMap = Resources.Load (levelName) as Texture2D;
 		loadDictionary ();
 		LoadMap ();
@@ -28,6 +32,22 @@ public class LevelLoader : MonoBehaviour {
 		colorToPrefabForReal = new Dictionary<Color32, GameObject> ();
 		foreach (ColorToPrefab ctp in colorToPrefab) {
 			colorToPrefabForReal.Add(ctp.color, ctp.prefab);
+		}
+	}
+
+	public void nextLevel(){
+		EmptyMap();
+		int a = System.Int32.Parse(levelName [2].ToString());
+		a = 1 + a;
+		levelName = levelName.Remove (levelName.Length -1);
+		levelName += a.ToString ();
+		//levelName.Insert (2, a.ToString ());
+		print (levelName);
+		try{
+			StartThisShit ();
+		}
+		catch (System.Exception e){
+			SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex + 1)%SceneManager.sceneCount);
 		}
 	}
 

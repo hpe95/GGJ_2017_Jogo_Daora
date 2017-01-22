@@ -8,15 +8,19 @@ public enum Polarity {Positive, Negative}
 
 public class MagnetController : MonoBehaviour {
 	public Side side;
-	public Polarity polarity;
+	public Polarity _polarity;
 
-	public Polarity Polarity {
+	public Polarity polarity {
 		get {
-			return polarity;
+			return _polarity;
 		}
 		set {
-			
-			polarity = value;
+			if (_polarity != value) {
+				anim.SetTrigger ("transition");
+				_polarity = value;
+				print ("oi");
+
+			}
 		}
 	}
 
@@ -66,7 +70,6 @@ public class MagnetController : MonoBehaviour {
 				isBlue = true;
 			}
 			anim.SetBool ("isOrange", polarity == Polarity.Positive);
-			bool qlqrcoisa = polarity == Polarity.Negative;
 			if (player.Rb.gravityScale != 0) {
 				originalGravityScale = player.Rb.gravityScale;
 			}
@@ -77,7 +80,6 @@ public class MagnetController : MonoBehaviour {
 				isRotating = true;
 				StartCoroutine (Rotate ());
 			}
-			anim.SetBool ("transistion", isRotating == !qlqrcoisa);
 		}
 	}
 

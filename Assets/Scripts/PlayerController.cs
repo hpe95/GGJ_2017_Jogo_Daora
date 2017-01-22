@@ -77,12 +77,9 @@ public class PlayerController : MonoBehaviour {
 		if (!coolDown)
 			StartCoroutine (WaitForShoot ());
 
-		print (timeToShoot/10);
 		anim.SetFloat ("TimeToShoot", timeToShoot);
 		RaycastHit2D hit = Physics2D.Raycast (transform.position, Vector2.right, 1000000, 1 << LayerMask.NameToLayer("Box"));
-		print (hit.collider.gameObject.transform.position);
-		Debug.DrawLine(transform.position, hit.collider.gameObject.transform.position);
-		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
+ 		if (hit.collider != null && hit.collider.tag == "AssassinObjects") {
 			distance = Mathf.Abs (hit.point.x - transform.position.x);
 			print ("entrou " + distance);
 		}

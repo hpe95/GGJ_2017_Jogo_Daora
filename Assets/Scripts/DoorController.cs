@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DoorController : MonoBehaviour {
+	private LevelLoader level;
+	void Start(){
+		level = FindObjectOfType<LevelLoader> ();
+	}
 
 	void OnTriggerEnter2D(Collider2D col){
-		if(col.gameObject.layer == LayerMask.NameToLayer("Player"))
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		if (col.gameObject.layer == LayerMask.NameToLayer ("Player"))
+			level.nextLevel ();
 	}
 }
